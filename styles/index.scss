@@ -14,7 +14,9 @@ $monthFont:30px arial ;
      vertical-align: middle;
     font:$bdayFont;
        display: inline-block;
-       margin: 6px;
+       margin-left:10px;
+       margin-bottom:10px;
+       //margin-top:10px;
        color:#fff;
     // border:1px solid #CFD9FB;
     // border-collapse: collapse;
@@ -32,7 +34,7 @@ $monthFont:30px arial ;
 
 .medEntry
 {
-    width:170px;
+    width:175px;
     height:175px;
     line-height: 175px;
     @extend .bdayIcons;
@@ -79,4 +81,5 @@ $monthFont:30px arial ;
 
 .monthBg{
     background-color: #CFD9FB;
+    padding-top:10px;
 }
