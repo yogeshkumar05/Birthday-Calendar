@@ -1,5 +1,5 @@
 import React from 'react';
-import Month from './month';
+import Month from './Month';
 import data from '../data/data100.json';
 
 
