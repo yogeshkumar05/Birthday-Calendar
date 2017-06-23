@@ -3,55 +3,43 @@ import Expander from './Expander';
 import Collapser from './Collapser';
 import MonthlyEntries from './MonthlyEntries';
 
-export default class Month extends React.Component
-{
-    constructor(props)
-    {
+export default class Month extends React.Component {
+    constructor(props) {
         super(props);
-        this.state={
-            entriesDisplayed:false
+        this.state = {
+            entriesDisplayed: false
         }
-        this.showEntries=this.showEntries.bind(this);
-        this.hideEntries=this.hideEntries.bind(this);
+        this.showEntries = this.showEntries.bind(this);
+        this.hideEntries = this.hideEntries.bind(this);
     }
 
-    componentWillReceiveProps(nextProps)
-    {
-        
+    showEntries(e) {
+        this.setState({ entriesDisplayed: true });
     }
-    showEntries(e)
-    {
-        // alert("show")
-        this.setState({entriesDisplayed:true});
-    }
-     hideEntries(e)
-    {
-        // alert("hide")
-        this.setState({entriesDisplayed:false});
+    hideEntries(e) {
+        this.setState({ entriesDisplayed: false });
     }
 
-    render()
-    {
+    render() {
 
-var displayPortStyle;
-    //dont display the portlet if screen is minimized, else display
-    if (this.state.entriesDisplayed) {
-         displayPortStyle = { display: "block" };
-      
-    }
-    else {
-     displayPortStyle = { display: "none" };
-    }
+        var displayPortStyle;
 
-    let ExpandOrCollapser=this.state.entriesDisplayed?<Collapser collapseDiv={this.hideEntries}/>:<Expander expandDiv={this.showEntries}/>
-    
-        return(
-            <div>
-                <h1>{this.props.name}{ExpandOrCollapser}
+        if (this.state.entriesDisplayed) {
+            displayPortStyle = { display: "block" };
+        }
+        else {
+            displayPortStyle = { display: "none" };
+        }
 
-                    </h1>
-                <div style={displayPortStyle}>
-                <MonthlyEntries monthEntries={this.props.entryArray}/>
+        let ExpandOrCollapser = this.state.entriesDisplayed ? <Collapser collapseDiv={this.hideEntries} /> : <Expander expandDiv={this.showEntries} />
+
+        return (
+            <div className="monthDetails">
+                <div className="monthContainer">{this.props.name}{ExpandOrCollapser}
+                </div >
+                <div className="monthBg" style={displayPortStyle}>
+                    {/*pass the array of indexes for each month*/}
+                    <MonthlyEntries monthEntries={this.props.entryArray} />
                 </div>
             </div>
         )

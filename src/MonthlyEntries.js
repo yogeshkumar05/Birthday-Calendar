@@ -2,32 +2,23 @@ import React from 'react';
 import dataDetails from '../data/data100.json';
 import BdayEntry from './BdayEntry';
 
-export default class MonthlyEntries extends React.Component
+export default function MonthlyEntries(props)
 {
-    constructor(props)
-    {
-        super(props);
-    }
-
-    componentWillReceiveProps(nextProps)
-    {
-        // alert(JSON.stringify(nextProps));
-    }
-
-    render()
-    {
-        // alert(personDetails.length);
-        // alert(JSON.stringify(personDetails[0]));
-        // alert(JSON.stringify(this.props.data));
-        // var d=new Date(this.props.data.dob)
-        // alert(d.getMonth());
-
-        let dataArray=this.props.monthEntries;
+        let dataArray=props.monthEntries;
+        let iconSize="smallEntry";
+        if(dataArray.length==1)
+        {
+            iconSize="largeEntry";
+        }
+        else if(dataArray.length==2)
+        {
+            iconSize="medEntry";
+        }
 
         let displayEntry=[];
         dataArray.map((item, index)=>
         {
-            displayEntry.push(<BdayEntry bdayEntry={dataDetails[item]}/>);
+            displayEntry.push(<BdayEntry key={index} bdayEntry={dataDetails[item]} iconSize={iconSize}/>);
         })
       
         return(
@@ -36,5 +27,4 @@ export default class MonthlyEntries extends React.Component
             </div>
         )
 
-    }
 }

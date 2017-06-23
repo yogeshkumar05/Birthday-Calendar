@@ -2,28 +2,9 @@ import React from 'react';
 import Month from './month';
 import data from '../data/data100.json';
 
-export default class BdayCalendar extends React.Component
+
+export default function BdayCalendar()
 {
-    constructor(props)
-    {
-        super(props);
-        // alert("bconstructor")
-    }
-
-    componentWillMount()
-    {
-        
-    }
-
-    componentWillReceiveProps(nextProps)
-    {
-        // alert(JSON.stringify(nextProps));
-    }
-
-    render()
-    {
-        console.info(data.length);
-        
         let jan=[];
         let feb=[];
         let mar=[];
@@ -37,13 +18,13 @@ export default class BdayCalendar extends React.Component
         let nov=[];
         let dec=[];
 
+        //construct an array for indexes for each month entries
         data.map((item, index)=>
         {
             let date=new Date(item.dob)
             let month=date.getMonth();
             if(month==0)
             {
-                //console.info(JSON.stringify(item))
                 jan.push(item.index);
             }
             if(month===1)
@@ -91,21 +72,23 @@ export default class BdayCalendar extends React.Component
                 dec.push(item.index);
             }
 
-        })
+        });
 
-        // alert(`jan ${jan.length}
-        //         feb ${feb.length}`)
         return(
-            <div>
-                <Month name="January" entryArray={jan}/>
-                <Month name="February" entryArray={feb}/>
-                <Month name="March" entryArray={mar}/>
-                <Month name="April" entryArray={apr}/>
-                <Month name="May" entryArray={may}/>
-                <Month name="June" entryArray={jun}/>
-                <Month name="July" entryArray={jul}/>
+            //render Month component with its entries
+            <div className="appContainer">
+                <Month name="JANUARY" entryArray={jan}/>
+                <Month name="FEBRUARY" entryArray={feb}/>
+                <Month name="MARCH" entryArray={mar}/>
+                <Month name="APRIL" entryArray={apr}/>
+                <Month name="MAY" entryArray={may}/>
+                <Month name="JUNE" entryArray={jun}/>
+                <Month name="AUGUST" entryArray={aug}/>
+                <Month name="SEPTEMBER" entryArray={sep}/>
+                <Month name="OCTOBER" entryArray={oct}/>
+                <Month name="NOVEMBER" entryArray={nov}/>
+                <Month name="DECEMBER" entryArray={dec}/>
+                
             </div>
         )
-
-    }
 }

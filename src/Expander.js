@@ -8,24 +8,17 @@ export default class Expander extends React.Component
         this.expandHandler=this.expandHandler.bind(this);
     }
 
-    componentWillReceiveProps(nextProps)
-    {
-        // alert(JSON.stringify(nextProps));
-    }
-
     expandHandler(e)
     {
-        // alert("Expand")
         this.props.expandDiv();
     }
 
     render()
     {
-        // alert(this.props.entryArray)
         return(
-            <span onClick={this.expandHandler}>
+            <div className="collapseIcons" onClick={this.expandHandler}>
                 >
-            </span>
+            </div>
         )
 
     }

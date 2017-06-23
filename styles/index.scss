@@ -1,0 +1,80 @@
+$bdayFont:72px arial;
+$monthFont:30px arial;
+
+*
+{
+    color: #fff;
+}
+
+.appContainer
+{
+    width:380px;
+    margin:10px;
+}
+
+
+.bdayIcons
+{
+    text-align: center;
+     vertical-align: middle;
+    font:$bdayFont;
+       display: inline-block;
+       margin: 6px;
+    // border:1px solid #CFD9FB;
+    // border-collapse: collapse;
+   //border-left:5px solid #CFD9FB;
+}
+
+.largeEntry
+{
+    width:360px;
+    height:360px;
+   @extend .bdayIcons;
+    line-height: 360px;
+
+}
+
+.medEntry
+{
+    width:170px;
+    height:175px;
+    line-height: 175px;
+    @extend .bdayIcons;
+
+}
+
+.smallEntry
+{
+    width:113px;
+    height:113px;
+   @extend .bdayIcons;
+
+}
+.monthContainer
+{ 
+    width:inherit;
+    height:50px;
+    font:$monthFont;
+    text-align: left;
+     vertical-align: middle;
+     line-height: 50px;
+     margin-left: 10px;
+     
+      
+}
+.monthDetails
+{
+    background-color: #FF6666;
+    margin-bottom:10px;
+}
+
+.collapseIcons
+{
+    float:right;
+    margin:8px;
+    font: $monthFont;
+}
+
+.monthBg{
+    background-color: #CFD9FB;
+}
