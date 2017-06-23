@@ -1,10 +1,5 @@
-$bdayFont:72px arial;
-$monthFont:30px arial;
-
-*
-{
-    color: #fff;
-}
+$bdayFont:72px arial ;
+$monthFont:30px arial ;
 
 .appContainer
 {
@@ -20,6 +15,7 @@ $monthFont:30px arial;
     font:$bdayFont;
        display: inline-block;
        margin: 6px;
+       color:#fff;
     // border:1px solid #CFD9FB;
     // border-collapse: collapse;
    //border-left:5px solid #CFD9FB;
@@ -50,6 +46,11 @@ $monthFont:30px arial;
    @extend .bdayIcons;
 
 }
+.heading
+{
+    margin-left:10px;
+    margin-bottom: 0;
+}
 .monthContainer
 { 
     width:inherit;
@@ -59,6 +60,7 @@ $monthFont:30px arial;
      vertical-align: middle;
      line-height: 50px;
      margin-left: 10px;
+        color:#fff;
      
       
 }
